@@ -43,7 +43,7 @@ jobs:
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: . # Path to your project folder where Dockerfile or .csproj is
+          context: WebApplication1 # Path to your project folder where Dockerfile or .csproj is
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
