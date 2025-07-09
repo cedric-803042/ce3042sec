@@ -2,9 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["WebApplication1.csproj", "WebApplication1/"]
+COPY ["Program.cs", "WebApplication1/"]
+COPY ["WeatherForecast.cs", "WebApplication1/"]
 RUN dotnet restore "WebApplication1/WebApplication1.csproj"
 COPY . .
-WORKDIR "/src"
+WORKDIR "/src/WebApplication1"
 RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
 
 # Stage 2: Publish the application
